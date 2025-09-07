@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Placement Confirmation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* A dark, modern background */
+        }
+        .main-container {
+            /* A sophisticated gradient palette */
+            background-image: linear-gradient(135deg, #434190 0%, #292a4b 100%);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .product-image-container {
+            background-image: linear-gradient(135deg, #868f96 0%, #596164 100%);
+        }
+        .timeline-dot {
+            transition: transform 0.3s ease;
+        }
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.2);
+        }
+        .status-text {
+            background: linear-gradient(to right, #6a5af9, #d66efd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .interactive-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .interactive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+        }
+        @keyframes growDown {
+            from { transform: scaleY(0); }
+            to { transform: scaleY(1); }
+        }
+        .animate-grow-down {
+            transform-origin: top;
+            animation: growDown 0.7s 0.8s ease-out forwards; /* Starts after column fades in */
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 8px #a78bfa, 0 0 16px #a78bfa; }
+            50% { box-shadow: 0 0 16px #c4b5fd, 0 0 24px #c4b5fd; }
+        }
+        .animate-pulse-glow {
+            animation: pulseGlow 2.5s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 sm:p-6">
+
+    <div class="main-container w-full max-w-4xl mx-auto rounded-3xl shadow-2xl text-white overflow-hidden">
+        <div class="p-8 md:p-12">
+            <!-- Header Section -->
+            <header class="flex justify-between items-center mb-8 animate-fadeIn" style="animation-delay: 0.2s;">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold tracking-tight">Your Order is Confirmed!</h1>
+                    <p class="text-gray-300 text-sm mt-1">Thank you for your purchase.</p>
+                </div>
+                <!-- Corrected Image Path -->
+                <img src="logo.png" alt="Company Logo" class="w-16 h-16 rounded-full border-2 border-white/50 object-cover shadow-lg">
+            </header>
+
+            <!-- Main Content Area -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Left Column: Product & Delivery -->
+                <div class="animate-fadeIn" style="animation-delay: 0.4s;">
+                    <!-- Product Details -->
+                    <div class="flex items-start space-x-6 bg-white/10 p-6 rounded-2xl backdrop-blur-sm interactive-card">
+                        <div class="product-image-container w-24 h-24 rounded-xl flex-shrink-0 flex items-center justify-center shadow-lg">
+                           <!-- Corrected Image Path -->
+                           <img src="product.jpg" alt="Digital Hanging Scale" class="w-20 h-20 object-contain rounded-md transition-transform duration-300 hover:scale-110">
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-lg">Digital Hanging Scale</h2>
+                            <p class="text-sm text-gray-300 mt-1">1 x 50kg Capacity Model</p>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Information -->
+                    <div class="mt-8 bg-white/10 p-6 rounded-2xl backdrop-blur-sm interactive-card">
+                        <h3 class="font-bold text-lg mb-4">Delivery Details</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-sm text-gray-300">Expected Delivery</p>
+                                <p class="font-semibold text-lg">9th September 2025, 4:45 PM</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-300">Delivery Address</p>
+                                <p class="font-semibold">Raeesa Phuppu, Dipl. 503, Kanungo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Order Timeline -->
+                <div class="animate-fadeIn" style="animation-delay: 0.6s;">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm h-full interactive-card">
+                         <h3 class="font-bold text-lg mb-6">Order Timeline</h3>
+                         <div class="relative pl-6">
+                            <!-- Timeline Line -->
+                            <div class="absolute left-2 top-0 bottom-0 w-0.5 bg-white/20 animate-grow-down"></div>
+
+                            <!-- Timeline Items -->
+                            <div class="relative mb-8 timeline-item" style="animation: fadeIn 1s 1s ease-out forwards; opacity: 0;">
+                                <div class="absolute -left-[30px] top-1 w-5 h-5 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full timeline-dot animate-pulse-glow"></div>
+                                <p class="font-semibold status-text">Order Confirmed</p>
+                                <p class="text-sm text-gray-300">We've received your order.</p>
+                                <p class="text-xs text-gray-400 mt-1">6th Sep 2025</p>
+                            </div>
+
+                            <div class="relative mb-8 timeline-item" style="animation: fadeIn 1s 1.2s ease-out forwards; opacity: 0;">
+                                <div class="absolute -left-[30px] top-1 w-5 h-5 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full timeline-dot animate-pulse-glow" style="animation-delay: 0.2s"></div>
+                                <p class="font-semibold status-text">Shipped</p>
+                                <p class="text-sm text-gray-300">Your item is on its way.</p>
+                                <p class="text-xs text-gray-400 mt-1">6th Sep 2025</p>
+                            </div>
+
+                            <div class="relative timeline-item opacity-60" style="animation: fadeIn 1s 1.4s ease-out forwards; opacity: 0;">
+                               <div class="absolute -left-[30px] top-1 w-5 h-5 bg-white/30 rounded-full timeline-dot"></div>
+                                <p class="font-semibold">Delivered</p>
+                                <p class="text-sm text-gray-300">Estimated: 9th Sep 2025</p>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
